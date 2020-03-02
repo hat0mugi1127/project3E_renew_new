@@ -1,0 +1,53 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class Motion : MonoBehaviour {
+    //GameObjectの確保
+    public GameObject apple;    
+    //体力
+    public int life;
+    //スピード
+    public int speed,speed_n,speed_s;
+    //座標獲得
+    public float x, y;
+    // Update is called once per frame
+    void Update() {
+        //移動
+        if (Input.GetKey(KeyCode.RightArrow)) {
+            transform.Translate(speed * Time.deltaTime, 0, 0);
+        }
+        if (Input.GetKey(KeyCode.LeftArrow)) {
+            transform.Translate(-speed * Time.deltaTime, 0, 0);
+        }
+        if (Input.GetKey(KeyCode.UpArrow)) {
+            transform.Translate(0, speed * Time.deltaTime, 0);
+        }
+        if (Input.GetKey(KeyCode.DownArrow)) {
+            transform.Translate(0, -speed * Time.deltaTime, 0);
+        }
+        //速度チェンジ
+        if (Input.GetKey(KeyCode.LeftShift)) {
+            speed = speed_s;
+        } else {
+            speed = speed_n;
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision) {
+        life -= 1;
+        if (life <= 2) {
+            //Jump
+            transform.position = new Vector3(-30, -30, 0);
+            //動作を停止
+            speed_n = 0;
+            speed_s = 0;
+            //座標確保
+            Vector3 spa = GameObject.Find("apple").transform.position;
+            x = spa.x;
+            y = spa.y;
+        }
+    }
+}
+
