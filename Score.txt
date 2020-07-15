@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//score計算
+
 public class Score : MonoBehaviour {
     //Textオブジェクト
     private Text score_text;

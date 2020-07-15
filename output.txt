@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//scoreの出力(まだ未完成)
+
 public class Output : MonoBehaviour {
     //Text
     private Text output;

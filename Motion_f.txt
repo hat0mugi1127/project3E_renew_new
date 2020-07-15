@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//敵モーション(fake(嘘)enemyのスクリプト)
+
 public class Motion_f : MonoBehaviour {
     //移動速度
     public float speed_e;
