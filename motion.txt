@@ -39,8 +39,8 @@ public class Motion : MonoBehaviour {
     }
     private void OnCollisionEnter2D(Collision2D collision) {
         //float x, y, z;
+        life -= 1;
         if (life <= 2) {
-            life -= 1;
             //Jump
             transform.position = new Vector3(-30, -30, 0);
             //動作を停止
